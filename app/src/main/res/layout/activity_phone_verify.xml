@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Phone_verify_Activity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:background="@color/purple_200"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lefticon"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/baseline_star_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="STEP-3: Verify your Phone Number" />
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/phone"/>
+        <!--app:srcCompat="@drawable/phone_verify" !-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/purple_200"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Verify your Phone Number" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="171dp"
+        android:text="Please click the  button below \nto verify your phone number"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+    <Button
+        android:id="@+id/verify_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:layout_gravity="center"
+        android:background="@color/colorBlue"
+        android:text="VERIFY PHONE.NO" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="100dp"
+        android:layout_weight="1"
+        android:text="BACK" />
+
+    <Button
+        android:id="@+id/buttonSubmit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="550dp"
+        android:text="NEXT" />
+
+
+
+</RelativeLayout>
