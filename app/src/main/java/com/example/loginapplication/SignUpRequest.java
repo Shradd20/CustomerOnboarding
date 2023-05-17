@@ -1,7 +1,21 @@
 package com.example.loginapplication;
 
 public class SignUpRequest {
-    String email, firstName, lastName,password;
+    String email;
+    String firstName;
+    String lastName;
+    String password;
+    String mobile;
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+
 
     public String getEmail() {
         return email;

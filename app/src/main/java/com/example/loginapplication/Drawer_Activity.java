@@ -44,7 +44,7 @@ public class Drawer_Activity extends AppCompatActivity implements NavigationView
 
         switch (item.getItemId()){
             case R.id.Home:
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this,DashboardActivity.class));
                 overridePendingTransition(0,0);
                 break;
 

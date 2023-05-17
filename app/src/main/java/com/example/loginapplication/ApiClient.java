@@ -16,7 +16,7 @@ public class ApiClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 //.baseUrl("http://192.168.54.17:3000")
                 //.baseUrl("http://192.168.43.87:3000")
-                .baseUrl("http://192.168.150.17:3000")
+                .baseUrl("http://192.168.239.17:3000")
                 .client(okHttpClient)
                 .build();
         return retrofit;

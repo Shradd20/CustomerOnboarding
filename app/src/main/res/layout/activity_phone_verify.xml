@@ -29,63 +29,89 @@
             android:text="STEP-3: Verify your Phone Number" />
 
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_marginTop="0dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/phone"/>
-        <!--app:srcCompat="@drawable/phone_verify" !-->
-
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/purple_200"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:text="Verify your Phone Number" />
+        android:text="Please enter your phone number:"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/phone_number_edit_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="171dp"
-        android:text="Please click the  button below \nto verify your phone number"
-        android:textColor="@color/black"
-        android:textSize="18dp" />
+        android:inputType="phone"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Phone number" />
+
     <Button
-        android:id="@+id/verify_email"
+        android:id="@+id/send_verification_code_button"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="16dp"
+        android:text="Send verification code" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:text="Please enter the verification code you received:" />
+
+    <EditText
+        android:id="@+id/verification_code_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="16dp"
+        android:hint="Verification code" />
+    <Button
+        android:id="@+id/verify_phone_number_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
-        android:layout_gravity="center"
-        android:background="@color/colorBlue"
-        android:text="VERIFY PHONE.NO" />
-
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="16dp"
+        android:text="Verify phone number" />
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:layout_marginLeft="100dp"
-        android:layout_weight="1"
-        android:text="BACK" />
-
-    <Button
-        android:id="@+id/buttonSubmit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="16dp"
         android:text="NEXT" />
 
 
+</LinearLayout>
 
 </RelativeLayout>

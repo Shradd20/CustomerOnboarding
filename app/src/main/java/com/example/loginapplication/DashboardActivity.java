@@ -23,17 +23,20 @@ public class DashboardActivity extends Drawer_Activity implements View.OnClickLi
     String userStr;
 
     ActivityDashboardBinding activityDashboardBinding;
+    TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         activityDashboardBinding=ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
-        allocateActivityTitle("Customer Onboarding");
+        allocateActivityTitle("TRUST CHECK");
 
+        tokenManager=new TokenManager(getApplicationContext());
        textView2 = findViewById(R.id.textView2);
-       userStr=getIntent().getExtras().getString("FirstName");
-       textView2.setText("Welcome"+" "+userStr);
+      // userStr=getIntent().getExtras().getString("FirstName");
+       textView2.setText("Welcome"+" "+tokenManager.getRegisterData().getfName());
 
 
 

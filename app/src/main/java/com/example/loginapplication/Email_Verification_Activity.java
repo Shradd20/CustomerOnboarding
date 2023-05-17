@@ -58,7 +58,7 @@ public class Email_Verification_Activity extends Drawer_Activity {
             @Override
             public void onClick(View view) {
                 emailUser();
-                startActivity(new Intent(Email_Verification_Activity.this, Identity_Proof_Activity.class));
+                startActivity(new Intent(Email_Verification_Activity.this, Phone_verify_Activity.class));
 
             }
         });

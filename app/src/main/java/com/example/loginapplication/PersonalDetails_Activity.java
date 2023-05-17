@@ -29,9 +29,11 @@ public class PersonalDetails_Activity extends  Drawer_Activity  {
     EditText mobile;
     EditText dob;
     EditText email;
-    EditText password;
+    EditText aadhar;
+    EditText gender;
     Button buttonSubmit;
     Button buttonSubmit2;
+    String userEmail;
     PersonalDetailsRequest personalDetailsRequest;
 
     @Override
@@ -43,22 +45,24 @@ public class PersonalDetails_Activity extends  Drawer_Activity  {
 
 
         tokenManager = new TokenManager(getApplicationContext());
-        firstName=findViewById(R.id.firstName);
-        lastName=findViewById(R.id.lastName);
-        mobile=findViewById(R.id.mobile);
-        dob=findViewById(R.id.dob);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
+        firstName=findViewById(R.id.firstNames);
+        lastName=findViewById(R.id.lastNames);
+        mobile=findViewById(R.id.mobiles);
+        dob=findViewById(R.id.dobs);
+        email=findViewById(R.id.emails);
+        aadhar=findViewById(R.id.aadhars);
+        gender=findViewById(R.id.genders);
+
 
 
         loadDataFromTokenManager();
 
-//        dob.setText(tokenManager.getDate());
-//        firstName.setText(tokenManager.getfName());
-//        lastName.setText(tokenManager.getlName());
-//        mobile.setText(tokenManager.getMob());
-//        email.setText(tokenManager.getEmail());
-//        password.setText(tokenManager.getPass());
+//        dob.setText(tokenManager.getData().getDate());
+//        firstName.setText(tokenManager.getData().getfName());
+//        lastName.setText(tokenManager.getData().getlName());
+//        mobile.setText(tokenManager.getData().getMob());
+//        email.setText(tokenManager.getData().getEmail());
+//        //password.setText(tokenManager.getPass());
 
         buttonSubmit = findViewById(R.id.buttonSubmit);
         buttonSubmit2=findViewById(R.id.buttonSubmit2);
@@ -116,14 +120,18 @@ public class PersonalDetails_Activity extends  Drawer_Activity  {
 
 
                         String fName = firstName.getText().toString();
+                        Log.e("Tag","fName"+fName);
                         String lName = lastName.getText().toString();
                         String mob = mobile.getText().toString();
                         String date = dob.getText().toString();
                         String mail= email.getText().toString();
-                        String pass=password.getText().toString();
+                        String gen=gender.getText().toString();
+                        String aNo=aadhar.getText().toString();
 
-                        tokenManager.saveUserDetails(date,fName,lName,mob,mail,pass);
-                        loadDataFromTokenManager();
+                        //tokenManager.saveUserDetails(date,fName,lName,mob,mail,gen,aNo);
+                        tokenManager.saveRegisterDetails(mail,fName,lName,date,gen,mob,aNo);
+
+                        //loadDataFromTokenManager();
                             //email.setText(tokenManager.getEmail());
                             //password.setText(tokenManager.getPass());
 
@@ -151,20 +159,32 @@ public class PersonalDetails_Activity extends  Drawer_Activity  {
     }
     private void loadDataFromTokenManager() {
         // Get the user data from the TokenManager
-        String fName = tokenManager.getfName();
-        String lName = tokenManager.getlName();
-        String mob = tokenManager.getMob();
-        String date = tokenManager.getDate();
+//        String mail=tokenManager.getData().getEmail();
+//        //String mail= userEmail;
+//       // String fName = tokenManager.getData().getfName();
+//        String fName= tokenManager.getData().getfName();
+//        String lName = tokenManager.getData().getlName();
+//        String mob = tokenManager.getData().getMob();
+//        String date = tokenManager.getData().getDate();
+//        String gen=tokenManager.getData().getGen();
+//        String aadharN=tokenManager.getData().getaNo();
         //String mail= email.getText().toString();
         //String pass=password.getText().toString();
+  String mail=tokenManager.getRegisterData().getEmail();
+  String fName=tokenManager.getRegisterData().getfName();
+  String lName=tokenManager.getRegisterData().getlName();
+  String mob=tokenManager.getRegisterData().getMob();
+  String date = tokenManager.getRegisterData().getDate();
+  String gen=tokenManager.getRegisterData().getGen();
+  String aadharN=tokenManager.getRegisterData().getaNo();
 
 
-
+        email.setText(mail);
         firstName.setText(fName);
         lastName.setText(lName);
         mobile.setText(mob);
         dob.setText(date);
-
-
+        gender.setText(gen);
+        aadhar.setText(aadharN);
     }
     }

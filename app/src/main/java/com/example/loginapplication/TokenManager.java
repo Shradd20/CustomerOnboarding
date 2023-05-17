@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TokenManager {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -39,44 +42,132 @@ public class TokenManager {
     }
 // no need to write getToken() if using intentextras
 
-    public void saveUserDetails(String date,String fName, String lName, String mob,String email,String password) {
-        editor.putString("date", date);
-        editor.putString("fName", fName);
-        editor.putString("lName", lName);
-        editor.putString("mob",mob);
-       editor.putString("email",email);
-        editor.putString("password",password);
-
+    public void saveUserDetails(String pdate,String pfName, String plName, String pmob,String pemail,String pgen,String paNo) {
+        editor.putString("pdate", pdate);
+        editor.putString("pfName", pfName);
+        editor.putString("plName", plName);
+        editor.putString("pmob",pmob);
+       editor.putString("pemail",pemail);
+        editor.putString("pgender",pgen);
+        editor.putString("padharNo",paNo);
         editor.apply();
     }
 
+    public TokenData2 getData() {
+        String mail=sharedPreferences.getString("remail", "");
+        String name = sharedPreferences.getString("rfName", "");
+        String lName=sharedPreferences.getString("rlName", "");
+        String dob = sharedPreferences.getString("rdate", "");
+        String gender=sharedPreferences.getString("rgender", "");
+        String phone=sharedPreferences.getString("rmob", "");
+        String aadhar=sharedPreferences.getString("radharNo", "");
 
-    public String getDate() {
-        return sharedPreferences.getString("date", "");
+        return new TokenData2(dob, name, lName, phone, mail, gender, aadhar);
     }
 
-    public String getfName() {
-        return sharedPreferences.getString("fName", "");
+
+    public void saveRegisterDetails(String remail,String rfName, String rlName, String rdate,String rgen,String rmob,String raNo){
+        editor.putString("rdate", rdate);
+        editor.putString("rfName", rfName);
+        editor.putString("rlName", rlName);
+        editor.putString("rmob",rmob);
+        editor.putString("remail",remail);
+        editor.putString("rgender",rgen);
+        editor.putString("radharNo",raNo);
+        editor.apply();
     }
 
-    public String getlName() {
-        return sharedPreferences.getString("lName", "");
+    public TokenData getRegisterData() {
+        String mail=sharedPreferences.getString("remail", "");
+        String name = sharedPreferences.getString("rfName", "");
+        String lName=sharedPreferences.getString("rlName", "");
+        String dob = sharedPreferences.getString("rdate", "");
+        String gender=sharedPreferences.getString("rgender", "");
+        String phone=sharedPreferences.getString("rmob", "");
+        String aadhar=sharedPreferences.getString("radharNo", "");
+
+        return new TokenData(dob, name, lName, phone, mail, gender, aadhar);
     }
 
-    public String getMob() {
-        return sharedPreferences.getString("mob", "");
+//    public String getDate() {
+//        return sharedPreferences.getString("date", "");
+//    }
+//
+//    public String getfName() {
+//        return sharedPreferences.getString("fName", "");
+//    }
+//
+//    public String getlName() {
+//        return sharedPreferences.getString("lName", "");
+//    }
+//
+//    public String getMob() {
+//        return sharedPreferences.getString("mob", "");
+//    }
+//
+////    public String getEmail() {
+////        return sharedPreferences.getString("email", "");
+////    }
+//
+//    public String getPass() {
+//        return sharedPreferences.getString("password", "");
+//    }
+//
+//    public String getVerify() {
+//        return sharedPreferences.getString("emailVerify", "");
+//    }
+    public void saveExtractedData(String  extractedName, String lName,String dob, String gender,String phoneNumber,String aadhaar) {
+        editor.putString("name",  extractedName);
+        //editor.putString("sName",  sName);
+        editor.putString("lName",  lName);
+        editor.putString("dob", dob);
+        editor.putString("gender", gender);
+        editor.putString("phoneNumber", phoneNumber);
+        editor.putString("aadhaar",aadhaar);
+        editor.apply();
     }
 
-    public String getEmail() {
-        return sharedPreferences.getString("email", "");
+    public void saveExtractedAddress(String add){
+        editor.putString("address",add);
+        editor.apply();
+    }
+    public Map<String,String> getSavedExtractedAddress(){
+        Map<String, String> extractedData = new HashMap<>();
+        extractedData.put("address", sharedPreferences.getString("address", ""));
+        return extractedData;
     }
 
-    public String getPass() {
-        return sharedPreferences.getString("password", "");
-    }
+  public TokenAddress getTokenExtractedAddressData(){
+      Map<String, String> savedData =getSavedExtractedAddress();
+      String address=savedData.get("address");
 
-    public String getVerify() {
-        return sharedPreferences.getString("emailVerify", "");
+      return new  TokenAddress(address);
+  }
+
+    public Map<String, String> getSavedExtractedData() {
+        Map<String, String> extractedData = new HashMap<>();
+        extractedData.put("name", sharedPreferences.getString("name", ""));
+        // extractedData.put("sName", sharedPreferences.getString("sName", ""));
+        extractedData.put("lName", sharedPreferences.getString("lName", ""));
+        extractedData.put("dob", sharedPreferences.getString("dob", ""));
+        extractedData.put("gender", sharedPreferences.getString("gender", ""));
+        extractedData.put("phoneNumber", sharedPreferences.getString("phoneNumber", ""));
+        extractedData.put("aadhaar", sharedPreferences.getString("aadhaar", ""));
+        extractedData.put("mail",sharedPreferences.getString("email", ""));
+        return extractedData;
+    }
+    public TokenData getTokenExtractedData() {
+        Map<String, String> savedData = getSavedExtractedData();
+        String name = savedData.get("name");
+        //String sName = savedData.get("sName");
+        String lName = savedData.get("lName");
+        String dob = savedData.get("dob");
+        String gender=savedData.get("gender");
+        String phoneNumber=savedData.get("phoneNumber");
+        String aadhaar=savedData.get("aadhaar");
+        String email=savedData.get("mail");
+
+        return new TokenData(dob, name, lName, phoneNumber, email, gender, aadhaar);
     }
 
 }

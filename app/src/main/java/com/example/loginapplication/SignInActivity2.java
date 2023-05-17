@@ -43,6 +43,7 @@ public class SignInActivity2 extends AppCompatActivity {
         textViewSignUp = findViewById(R.id.textViewSignUp);
         inputFName=findViewById(R.id.inputFName);
 
+        //loadTokenData();
 
 
         textViewSignUp.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,7 @@ public class SignInActivity2 extends AppCompatActivity {
                 } else {
                     SignInRequest signinRequest = new SignInRequest();
                     signinRequest.setEmail(inputPass.getText().toString());
+                    //signinRequest.setEmail(tokenManager.getRegisterData().getEmail());
                     signinRequest.setPassword(inputPassword.getText().toString());
 
                     signinUser(signinRequest);
@@ -69,7 +71,13 @@ public class SignInActivity2 extends AppCompatActivity {
         });
     }
 
-                public void signinUser(SignInRequest signinRequest) {
+//    private void loadTokenData() {
+//        String email=tokenManager.getRegisterData().getEmail();
+//
+//        inputPass.setText(email);
+//    }
+
+    public void signinUser(SignInRequest signinRequest) {
 
                    // Boolean emailVerified = Boolean.valueOf(getIntent().getStringExtra("verifyemail"));//intent extra
 
@@ -101,6 +109,7 @@ public class SignInActivity2 extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),"LOGIN SUCESSFULLY", Toast.LENGTH_LONG).show();
 
 
+
                                     // tokenManager.saveToken(signinResponse.getToken().toString());
                                     //tokenManager.saveToken(signinResponse.getJwt().toString());
 
@@ -109,6 +118,7 @@ public class SignInActivity2 extends AppCompatActivity {
                                     Intent i = new Intent(SignInActivity2.this, DashboardActivity.class);
                                     i.putExtra("FirstName",inputFName.getText().toString());
                                     i.putExtra("jwt_token", token);//include this line agar getToken() method nhi use karni
+                                    i.putExtra("email",inputPass.getText());
                                     startActivity(i);
 
                                     //startActivity(new Intent(SignInActivity.this, MainActivity.class));//
